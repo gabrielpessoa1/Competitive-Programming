@@ -1,3 +1,5 @@
+// World Finals 2019
+// G - First of Her Name
 // https://open.kattis.com/problems/firstofhername
 
 #include <bits/stdc++.h>

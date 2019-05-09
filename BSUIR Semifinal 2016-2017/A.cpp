@@ -1,3 +1,7 @@
+// BSUIR Semifinal 2016-2017
+// A - Tennis
+// https://codeforces.com/group/yc7Yxny414/contest/102134/problem/A
+
 #include <bits/stdc++.h>
 using namespace std;
 

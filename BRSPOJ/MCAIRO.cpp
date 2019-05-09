@@ -1,3 +1,7 @@
+// BR SPOJ
+// MCAIRO - Mercado do Cairo
+// https://br.spoj.com/problems/MCAIRO/
+
 #include <bits/stdc++.h>
 using namespace std;
 

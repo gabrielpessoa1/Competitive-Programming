@@ -1,3 +1,7 @@
+// Codeforces Testing Round #12
+// C - Subsequences
+// https://codeforces.com/contest/597/problem/C
+
 #include <bits/stdc++.h>
 using namespace std;
 

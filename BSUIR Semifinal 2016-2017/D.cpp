@@ -27,8 +27,7 @@ int main() {
   long long ans = 0;
   for(int i = 0; i < s.size(); i++) {
     os.insert({sum, i});
-    if(s[i] == '0') sum -= p;
-    else sum += q - p;
+    sum += (s[i] - '0') * q - p;
     ans += os.order_of_key({sum-1, i});
   }
   cout << ans << '\n';

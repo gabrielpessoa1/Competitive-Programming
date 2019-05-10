@@ -1,6 +1,6 @@
 // BSUIR Semifinal 2016-2017
 // C - Maya's message
-// https://codeforces.com/group/yc7Yxny414/contest/102134/problem/C
+// https://codeforces.com/gym/102134/problem/C
 
 #include <bits/stdc++.h>
 using namespace std;

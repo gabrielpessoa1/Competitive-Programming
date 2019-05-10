@@ -1,6 +1,6 @@
 // BSUIR Semifinal 2016-2017
 // F - A+B
-// https://codeforces.com/group/yc7Yxny414/contest/102134/problem/F
+// https://codeforces.com/gym/102134/problem/F
 
 #include <bits/stdc++.h>
 using namespace std;

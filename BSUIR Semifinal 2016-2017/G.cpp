@@ -1,6 +1,6 @@
 // BSUIR Semifinal 2016-2017
 // G - Many dimensional dice
-// https://codeforces.com/group/yc7Yxny414/contest/102134/problem/G
+// https://codeforces.com/gym/102134/problem/G
 
 #include <bits/stdc++.h>
 using namespace std;

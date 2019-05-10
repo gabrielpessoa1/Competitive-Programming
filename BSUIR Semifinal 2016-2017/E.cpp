@@ -1,6 +1,6 @@
 // BSUIR Semifinal 2016-2017
 // E - Kth subtree
-// https://codeforces.com/group/yc7Yxny414/contest/102134/problem/E
+// https://codeforces.com/gym/102134/problem/E
 
 #include <bits/stdc++.h>
 using namespace std;

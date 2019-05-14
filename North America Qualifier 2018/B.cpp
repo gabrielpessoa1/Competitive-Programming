@@ -1,6 +1,6 @@
 // North America Qualifier 2018
-// B - Bingo Ties
-// https://open.kattis.com/problems/bingoties
+// B - Das Blinkenlights 
+// https://open.kattis.com/problems/dasblinkenlights
 
 #include <bits/stdc++.h>
 using namespace std;

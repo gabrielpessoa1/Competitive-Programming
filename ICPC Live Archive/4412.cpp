@@ -23,19 +23,23 @@ double calc(double mi) {
   }
   for(int i = g-1; i >= 0; i--) {
     for(int j = g-i; j <= g+i; j++) {
-      dp[i][j] = {0, 0};
-      for(int k = 0; k < 3; k++) {
-        pair<double, double> temp = {0, 0};
-        for(int l = 0; l < 3; l++) {
-          int idx = (k+l);
-          if(idx >= 3) idx -= 3;
-          int scoreChange = 0;
-          if(l == 0) scoreChange = 1;
-          else if(l == 2) scoreChange = -1;
-          temp.first += dp[i+1][j+scoreChange].first * probs[i][idx];
-          temp.second += dp[i+1][j+scoreChange].second * probs[i][idx];
+      if(j-g > g - i) dp[i][j] = {1, 0};
+      else if(g-j > g - i) dp[i][j] = {0, 0};
+      else {
+        dp[i][j] = {0, 0};
+        for(int k = 0; k < 3; k++) {
+          pair<double, double> temp = {0, 0};
+          for(int l = 0; l < 3; l++) {
+            int idx = (k+l);
+            if(idx >= 3) idx -= 3;
+            int scoreChange = 0;
+            if(l == 0) scoreChange = 1;
+            else if(l == 2) scoreChange = -1;
+            temp.first += dp[i+1][j+scoreChange].first * probs[i][idx];
+            temp.second += dp[i+1][j+scoreChange].second * probs[i][idx];
+          }
+          if(temp.first + temp.second*mi > dp[i][j].first + dp[i][j].second*mi) dp[i][j] = temp;
         }
-        if(temp.first + temp.second*mi > dp[i][j].first + dp[i][j].second*mi) dp[i][j] = temp;
       }
     }
   }
@@ -43,17 +47,17 @@ double calc(double mi) {
 }
 
 main() {
-  cin.tie(0); ios::sync_with_stdio(0);
   cout << fixed << setprecision(3);
-  while(cin >> g >> w >> l, g || w || l) {
+  while(scanf("%d%d%d", &g, &w, &l) == 3 && (g || w || l)) {
     for(int i = 0; i < g; i++) {
       for(int j = 0; j < 3; j++) {
-        cin >> probs[i][j];
-        probs[i][j] /= 100;
+        int x;
+        scanf("%d", &x);
+        probs[i][j] = x / 100.0;
       }
     }
     double lo = 0, hi = 1;
-    for(int it = 0; it < 20; it++) {
+    for(int it = 0; it < 10; it++) {
       double m = (lo+hi)/2;
       if(calc(m) > m) lo = m;
       else hi = m;

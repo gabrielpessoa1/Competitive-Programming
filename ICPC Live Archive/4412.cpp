@@ -57,12 +57,12 @@ main() {
       }
     }
     double lo = 0, hi = 1;
-    for(int it = 0; it < 10; it++) {
+    for(int it = 0; it < 7; it++) {
       double m = (lo+hi)/2;
       if(calc(m) > m) lo = m;
       else hi = m;
     }
-    double p = calc(lo);
+    double p = calc((hi+lo)/2);
     k[0] = 0;
     for(int i = 1; i < w+l; i++) {
       k[i] = (p/(1 - k[i-1]*(1-p)));

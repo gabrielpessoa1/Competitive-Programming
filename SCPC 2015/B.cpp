@@ -21,19 +21,17 @@ void dfs(int u, int v) {
 }
 
 main() {
-  cin.tie(0); ios::sync_with_stdio(0);
-  cout << fixed << setprecision(4);
   int t;
-  cin >> t;
+  scanf("%d", &t);
   while(t--) {
     int n, q;
-    cin >> n >> q;
+    scanf("%d%d", &n, &q);
     int root = -1;
     memset(notRoot, 0, sizeof notRoot);
     for(int i = 1; i <= n; i++) {
-      cin >> k[i];
+      scanf("%d", &k[i]);
       if(k[i] == 2){
-        cin >> l[i] >> r[i];
+        scanf("%d%d", &l[i], &r[i]);
         notRoot[l[i]] = 1;
         notRoot[r[i]] = 1;
       }
@@ -45,8 +43,8 @@ main() {
     dfs(root, 0);
     for(int i = 0; i < q; i++) {
       double R, V, H; int u;
-      cin >> R >> V >> H >> u;
-      cout << (2*R + H)*(x[u]-x[root]) << ' ' << -(V+2*R)*h[u] << '\n';
+      scanf("%lf%lf%lf%d", &R, &V, &H, &u);
+      printf("%.4f %.4f\n", (2*R + H)*(x[u]-x[root]), -(V+2*R)*h[u]);
     }
   }
 }

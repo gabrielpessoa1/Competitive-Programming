@@ -76,7 +76,7 @@ main() {
         groups.push_back(sz[i]);
       }
     }
-    cout << abs(solve(0, 0)+solve(0, 0)-n) << endl;
+    solve(0, 0);
     recover(0, 0);
     for(int i = 0; i < n; i++) {
       cout << bit[myP[dsFind(i)]];

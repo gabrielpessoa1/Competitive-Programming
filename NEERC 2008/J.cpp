@@ -26,7 +26,6 @@ int solve(int a, int b, int c, int d, int e) {
       cons.pop();
     }
   }
-  //cout << (char) ('A'+a) << ' ' << (char)('A'+b) << ' ' << (char)('A'+c) << ' ' << (char)('A'+d) << ' ' << (char)('A'+e) << endl;
   for(int i = 0; i < (int) t.size(); i++) {
     for(char c : t[i]) {
       if(c == ' ') cout << c;

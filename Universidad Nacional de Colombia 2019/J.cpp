@@ -22,35 +22,33 @@ void build(int idx = 0, int l = 0, int r = n-1) {
   lo[idx] = min(lo[2*idx+1], lo[2*idx+2]);
 }
 
-void propagate(int idx, int l, int r) {
+void apply(int idx, int l, int r) {
   int mid = (l+r)/2;
   if(lazy[idx]) {
+    if(l < r) {
+      lazy[2*idx+1] += lazy[idx];
+      lazy[2*idx+2] += lazy[idx];
+    }
     if(lo[idx] > lazy[idx]) {
       lo[idx] -= lazy[idx];
       seg[idx] -= lazy[idx] * sz[idx];
-      if(l < r) {
-        lazy[2*idx+1] += lazy[idx];
-        lazy[2*idx+2] += lazy[idx];
-      }
     } else if(l == r) {
       lo[idx] = inf;
       seg[idx] = 0;
       sz[idx] = 0;
     } else {
-      lazy[2*idx+1] += lazy[idx];
-      lazy[2*idx+2] += lazy[idx];
-      propagate(2*idx+1, l, mid); propagate(2*idx+2, mid+1, r);
+      apply(2*idx+1, l, mid); apply(2*idx+2, mid+1, r);
       seg[idx] = seg[2*idx+1] + seg[2*idx+2];
       lo[idx] = min(lo[2*idx+1], lo[2*idx+2]);
       sz[idx] = sz[2*idx+1] + sz[2*idx+2];
     }
-    lazy[idx] = 0;
   }
+  lazy[idx] = 0;
 }
 
 int query(int L, int R, int idx = 0, int l = 0, int r = n-1) {
   int mid = (l+r)/2;
-  propagate(idx, l, r);
+  apply(idx, l, r);
   if(l > R || r < L) return 0;
   if(L <= l && r <= R) return seg[idx];
   return query(L, R, 2*idx+1, l, mid) + query(L, R, 2*idx+2, mid+1, r);
@@ -58,11 +56,11 @@ int query(int L, int R, int idx = 0, int l = 0, int r = n-1) {
 
 void update(int L, int R, int V, int idx = 0, int l = 0, int r = n-1) {
   int mid = (l+r)/2;
-  propagate(idx, l, r);
+  apply(idx, l, r);
   if(l > R || r < L) return;
   if(L <= l && r <= R) {
     lazy[idx] = V;
-    propagate(idx, l, r);
+    apply(idx, l, r);
     return;
   }
   update(L, R, V, 2*idx+1, l, mid); update(L, R, V, 2*idx+2, mid+1, r);

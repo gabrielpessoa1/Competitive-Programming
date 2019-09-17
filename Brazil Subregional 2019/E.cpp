@@ -2,6 +2,7 @@
 using namespace std;
 
 const int ms = 1e5+5;
+const int inf = 0x3f3f3f3f;
 
 int m[ms], f[ms];
 int isEmpty[ms];
@@ -31,9 +32,11 @@ main() {
     if(isEmpty[i]) continue;
     f[i] = f[i] - 1;
   }
-  memset(dp, 63, sizeof dp);
   for(int j = 0; j <= empt; j++) {
     dp[n][j][1][1] = 0;
+    dp[n][j][0][1] = inf;
+    dp[n][j][1][0] = inf;
+    dp[n][j][0][0] = inf;
   }
   for(int i = n-1; i >= 0; i--) {
     for(int j = 0; j <= empt; j++) {

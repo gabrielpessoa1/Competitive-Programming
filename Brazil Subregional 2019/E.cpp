@@ -45,7 +45,6 @@ main() {
             ans = min(ans, dp[i+1][j-1][1][hasUm]);
           }
           if(!isEmpty[i]) {
-            ans = min(ans, dp[i+1][j][1][hasUm] + m[i] + m[i]);
             int k = min(j, m[i]); 
             ans = min(ans, dp[i+1][j-k][1][hasUm] + m[i] + m[i] - k);
           }

@@ -10,6 +10,7 @@ int isEmpty[ms];
 int dp[3005][3005][2][2];
 
 main() {
+  cin.tie(0); ios::sync_with_stdio(0);
   int n;
   cin >> n;
   int qntM = 0;
